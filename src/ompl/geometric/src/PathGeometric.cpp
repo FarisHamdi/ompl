@@ -225,6 +225,8 @@ std::pair<bool, bool> ompl::geometric::PathGeometric::checkAndRepair(unsigned in
             // valid as well since we cannot change the last state.
             (i == n1 - 1 && !si_->checkMotion(states_[i], states_[i + 1])))
         {
+            // HOTFIX: Repair and check results in long run times. Disabling this loop
+            return std::make_pair(false, false);
             // we now compute a state around which to sample
             if (!temp)
                 temp = si_->allocState();
