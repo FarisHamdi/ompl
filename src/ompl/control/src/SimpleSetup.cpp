@@ -53,6 +53,7 @@ ompl::control::SimpleSetup::SimpleSetup(const ControlSpacePtr &space)
 
 void ompl::control::SimpleSetup::setup()
 {
+    std::cout << "[OMPL - SimpleSetup] v1.5.2a - Setup" << std::endl;
     if (!configured_ || !si_->isSetup() || !planner_->isSetup())
     {
         if (!si_->isSetup())
