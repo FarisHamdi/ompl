@@ -1,7 +1,11 @@
 .registered
 .DS_Store
 *.swp
+.catkin_tools
+.vscode
 build/
+install/
+log/
 bin/
 lib/
 *.pcd
