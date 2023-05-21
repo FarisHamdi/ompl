@@ -178,7 +178,7 @@ ompl::base::PlannerStatus ompl::geometric::KPIECE1::solve(const base::PlannerTer
     {
         // solution = approxsol;
         // approximate = true;
-        std::cout << "[OMPL - KPIECE] Was about to add an approximate solution. Passing on" << std::endl;
+        // std::cout << "[OMPL - KPIECE] Was about to add an approximate solution. Passing on" << std::endl;
     }
 
     if (solution != nullptr)

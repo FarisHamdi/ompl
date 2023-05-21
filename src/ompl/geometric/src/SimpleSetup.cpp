@@ -122,6 +122,7 @@ void ompl::geometric::SimpleSetup::setGoal(const base::GoalPtr &goal)
 // termination condition
 ompl::base::PlannerStatus ompl::geometric::SimpleSetup::solve(double time)
 {
+    std::cout << "[OMPL - geometric::SimpleSetup] v1.5.2a - Setup" << std::endl;
     setup();
     lastStatus_ = base::PlannerStatus::UNKNOWN;
     time::point start = time::now();
