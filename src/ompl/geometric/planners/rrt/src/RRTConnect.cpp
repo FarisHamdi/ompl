@@ -344,7 +344,7 @@ ompl::base::PlannerStatus ompl::geometric::RRTConnect::solve(const base::Planner
                     if (dist < approxdif)
                     {
                         approxdif = dist;
-                        approxsol = tgi.xmotion;
+                        // approxsol = tgi.xmotion;
                     }
                 }
             }

@@ -131,12 +131,12 @@ ompl::base::PlannerStatus ompl::tools::ParallelPlan::solve(const base::PlannerTe
             }
     }
 
-    if (pdef_->hasSolution())
-        OMPL_INFORM("ParallelPlan::solve(): Solution found by one or more threads in %f seconds",
-                    time::seconds(time::now() - start));
-    else
-        OMPL_WARN("ParallelPlan::solve(): Unable to find solution by any of the threads in %f seconds",
-                  time::seconds(time::now() - start));
+    // if (pdef_->hasSolution())
+    //     OMPL_INFORM("ParallelPlan::solve(): Solution found by one or more threads in %f seconds",
+    //                 time::seconds(time::now() - start));
+    // else
+    //     OMPL_WARN("ParallelPlan::solve(): Unable to find solution by any of the threads in %f seconds",
+    //               time::seconds(time::now() - start));
 
     return {pdef_->hasSolution(), pdef_->hasApproximateSolution()};
 }
@@ -169,7 +169,7 @@ void ompl::tools::ParallelPlan::solveOne(base::Planner *planner, std::size_t min
 void ompl::tools::ParallelPlan::solveMore(base::Planner *planner, std::size_t minSolCount, std::size_t maxSolCount,
                                           const base::PlannerTerminationCondition *ptc)
 {
-    OMPL_DEBUG("ParallelPlan.solveMore: starting planner %s", planner->getName().c_str());
+    // OMPL_DEBUG("ParallelPlan.solveMore: starting planner %s", planner->getName().c_str());
 
     time::point start = time::now();
     try
@@ -184,7 +184,7 @@ void ompl::tools::ParallelPlan::solveMore(base::Planner *planner, std::size_t mi
             if (nrSol >= maxSolCount)
                 ptc->terminate();
 
-            OMPL_DEBUG("ParallelPlan.solveMore: Solution found by %s in %lf seconds", planner->getName().c_str(), duration);
+            // OMPL_DEBUG("ParallelPlan.solveMore: Solution found by %s in %lf seconds", planner->getName().c_str(), duration);
 
             const std::vector<base::PlannerSolution> &paths = pdef_->getSolutions();
 
@@ -198,9 +198,9 @@ void ompl::tools::ParallelPlan::solveMore(base::Planner *planner, std::size_t mi
                 phybrid_->computeHybridPath();
 
             duration = time::seconds(time::now() - start);
-            OMPL_DEBUG("ParallelPlan.solveMore: Spent %f seconds hybridizing %u solution paths (attempted %u connections "
-                       "between paths)",
-                       duration, (unsigned int)phybrid_->pathCount(), attempts);
+            // OMPL_DEBUG("ParallelPlan.solveMore: Spent %f seconds hybridizing %u solution paths (attempted %u connections "
+            //            "between paths)",
+            //            duration, (unsigned int)phybrid_->pathCount(), attempts);
         }
     }
     catch (Exception &e)
